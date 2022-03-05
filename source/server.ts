@@ -1,25 +1,26 @@
+import { webhook } from "./applicationLogic/gitHubHelper";
+
 /** source/server.ts */
 const express = require("express");
 
 const app = express();
-const PORT = 3030;
+const PORT = 8080;
 
-app.get("/", (req: any, res: { send: (arg0: string) => any }) => {
+app.get("/", (req: any, res: any) => {
   console.log(req + res);
   return res.send("Received a GET HTTP method");
 });
 
-app.post("/", (req: any, res: { send: (arg0: string) => any }) => {
-  console.log(req + res);
-  return res.send("Received a POST HTTP method");
+app.post("/", async (req: any, res: any) => {
+  return await webhook(req, res);
 });
 
-app.put("/", (req: any, res: { send: (arg0: string) => any }) => {
+app.put("/", (req: any, res: any) => {
   console.log(req + res);
   return res.send("Received a PUT HTTP method");
 });
 
-app.delete("/", (req: any, res: { send: (arg0: string) => any }) => {
+app.delete("/", (req: any, res: any) => {
   console.log(req + res);
   return res.send("Received a DELETE HTTP method");
 });

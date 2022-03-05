@@ -8,6 +8,10 @@
 - When the repository is created, the protection of the default branch.
 - Notifies the creator with a @mention in an issue within the repository that outlines the protections that were added.
 
+## Before Running the Project
+
+- Set githubToken as an environment variable with a value that corresponds to a GitHub Token (ex- export githubToken=xxxxxxxxxx)
+
 ## Useful commands
 
 - Run 'npm run verify:prettier' to verify prettify on the project
