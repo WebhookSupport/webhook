@@ -1,0 +1,16 @@
+name: webhook
+
+on:
+  push:
+
+jobs:
+  verify:
+    if: contains('refs/heads/main', github.ref)
+    runs-on: ubuntu-20.04
+    permissions:
+      id-token: write
+      contents: write
+    steps:
+      - uses: actions/checkout@v2
+      - name: Prettier check
+        run: npm run fix:prettier
