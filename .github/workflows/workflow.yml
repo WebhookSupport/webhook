@@ -13,4 +13,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Prettier check
-        run: npm run fix:prettier
+        run: npm run verify:prettier
