@@ -4,7 +4,7 @@ on:
   push:
 
 jobs:
-  verify:
+  verify-prettier:
     if: contains('refs/heads/main', github.ref)
     runs-on: ubuntu-20.04
     permissions:

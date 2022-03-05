@@ -1,3 +1,5 @@
+[![webhook](https://github.com/WebhookSupport/webhook/actions/workflows/workflow.yml/badge.svg)](https://github.com/WebhookSupport/webhook/actions/workflows/workflow.yml)
+
 # Webhook
 
 ## What does this project do?
