@@ -16,8 +16,7 @@ app.post("/", (req: any, res: any) => {
     body += req.read();
   });
   req.on("end", async () => {
-    console.log(body);
-    return res.send(await webhook(body, res));
+    return res.send(await webhook(body.slice(0, -4).trim(), res));
   });
 });
 
