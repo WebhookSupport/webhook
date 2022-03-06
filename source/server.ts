@@ -1,4 +1,4 @@
-import { webhook } from "./applicationLogic/gitHubHelper";
+import { webhook } from "./src/gitHubHelper";
 
 const express = require("express");
 
