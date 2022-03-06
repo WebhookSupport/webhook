@@ -64,3 +64,9 @@
 - [NodeJS](https://nodejs.org/en/)
 - [yarn](https://yarnpkg.com/)
 - [TypeScript](https://www.typescriptlang.org/)
+
+## Improvements
+
+- Adding test cases to this project
+- Build a complete GitHub CI pipeline, so it's deployed when any code changes happen
+- Integrate IAC code within this, so infrastructure and networking components are deployed with CI pipeline first and later the code is deployed on it
