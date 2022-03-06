@@ -11,6 +11,7 @@
 ## Installations needed
 
 - Install node
+- Install yarn
 - Run 'npm install' from the root of the module to install all the dependent packages
 
 ## Before Running the Project
@@ -56,4 +57,5 @@
 - [GitHub CI](https://docs.github.com/en/actions)
 - [Express](https://expressjs.com/)
 - [NodeJS](https://nodejs.org/en/)
+- [yarn](https://yarnpkg.com/)
 - [TypeScript](https://www.typescriptlang.org/)
