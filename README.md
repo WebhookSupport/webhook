@@ -16,7 +16,6 @@
 
 - Install node
 - Install yarn
-- Run 'npm install' from the root of the module to install all the dependent packages
 - Refer 'versions.txt' for versions used during this project development
 
 ## Before Running the Project
@@ -33,6 +32,7 @@
 
 ### How to run this project?
 
+- Run 'npm install' from the root of the module to install all the dependent packages
 - Run 'npm run dev' to start the project on port 3030
 
 ### Assign a Public IP for the application
