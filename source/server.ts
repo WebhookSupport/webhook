@@ -1,18 +1,24 @@
 import { webhook } from "./applicationLogic/gitHubHelper";
 
-/** source/server.ts */
 const express = require("express");
 
 const app = express();
-const PORT = 8080;
+const PORT = 3030;
 
 app.get("/", (req: any, res: any) => {
   console.log(req + res);
   return res.send("Received a GET HTTP method");
 });
 
-app.post("/", async (req: any, res: any) => {
-  return await webhook(req, res);
+app.post("/", (req: any, res: any) => {
+  let body = "";
+  req.on("readable", () => {
+    body += req.read();
+  });
+  req.on("end", async () => {
+    console.log(body);
+    return res.send(await webhook(body, res));
+  });
 });
 
 app.put("/", (req: any, res: any) => {

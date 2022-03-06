@@ -5,13 +5,13 @@ const octokit = new Octokit({
 });
 
 async function createBranchProtectionRule() {
-  return;
+  return "OK";
 }
 
 export async function webhook(req: any, res: any) {
   try {
-    console.log(req.body);
-    await createBranchProtectionRule();
+    console.log(req);
+    return await createBranchProtectionRule();
   } catch (e: any) {
     console.log("Failed", e);
   }

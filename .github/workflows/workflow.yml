@@ -5,7 +5,7 @@ on:
 
 jobs:
   verify-prettier:
-    if: contains('refs/heads/main', github.ref)
+    if: contains('refs/heads/test', github.ref)
     runs-on: ubuntu-20.04
     permissions:
       id-token: write
