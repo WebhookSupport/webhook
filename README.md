@@ -8,6 +8,10 @@
 - When the repository is created, the protection of the default branch is created automatically.
 - Notifies the creator with a @mention in an issue within the repository that outlines the protections that were added.
 
+## Flow Diagram
+
+![](../Desktop/Screen Shot 2022-03-06 at 1.38.41 PM.png)
+
 ## Installations needed
 
 - Install node
@@ -16,7 +20,8 @@
 
 ## Before Running the Project
 
-- Set githubToken as an environment variable with a value that corresponds to a GitHub Token (ex- export githubToken=xxxxxxxxxx)
+- Set githubToken as an environment variable with a value that corresponds to a GitHub Token (ex- export githubToken=xxxxxxxxxx) - [GitHub Token Creation](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+- Set githubUserName as an environment variable with a value that corresponds to the username you want to mention in the issue created (ex - export githubUserName=xxxxxxx)
 
 ## Useful commands
 

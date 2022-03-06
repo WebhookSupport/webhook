@@ -1,4 +1,7 @@
-import { webhook } from "./helper/gitHubHelper";
+/**
+ * Express server file that consists the routes
+ */
+import { webhook } from "./webhook/gitHub";
 
 const express = require("express");
 
@@ -7,7 +10,7 @@ const PORT = 3030;
 
 app.get("/", (req: any, res: any) => {
   console.log(req + res);
-  return res.send("Received a GET HTTP method");
+  return res.send("GET HTTP method");
 });
 
 app.post("/", (req: any, res: any) => {
@@ -22,12 +25,12 @@ app.post("/", (req: any, res: any) => {
 
 app.put("/", (req: any, res: any) => {
   console.log(req + res);
-  return res.send("Received a PUT HTTP method");
+  return res.send("PUT HTTP method");
 });
 
 app.delete("/", (req: any, res: any) => {
   console.log(req + res);
-  return res.send("Received a DELETE HTTP method");
+  return res.send("DELETE HTTP method");
 });
 
-app.listen(PORT, () => console.log(`Example app listening on port ${PORT}!`));
+app.listen(PORT, () => console.log(`app listening on port ${PORT}!`));
