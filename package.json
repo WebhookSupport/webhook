@@ -1,7 +1,7 @@
 {
   "name": "webhook",
   "version": "1.0.0",
-  "description": "A webhook that listens for organization events to know when a repository has been created. When the repository is created, the protection of the default branch. Notifies the creater with an @mention in an issue within the repository that outlines the protections that were added",
+  "description": "A webhook that is triggered on GitHub organization repository events. When the repository is created, a protection rule on the default branch along with an issue with @mention is created.",
   "main": "source/server.ts",
   "scripts": {
     "dev": "nodemon source/server.ts",

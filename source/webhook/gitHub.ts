@@ -6,7 +6,7 @@
 import { options } from "../config/gitHubConfig";
 import { branchProtectionRule, issueCreation } from "../helper/gitHubHelper";
 
-async function createBranchProtectionRule(req: any): Promise<string> {
+async function createBranchProtectionRule(req: any) {
   if (req === "{}") {
     console.log("Payload is empty");
     return "OK";

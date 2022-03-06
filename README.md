@@ -4,7 +4,7 @@
 
 ## What does this project do?
 
-- A webhook that listens for organization events to know when a repository has been created.
+- A webhook that listens for GitHub organization repository events to know when a repository has been created.
 - When the repository is created, the protection of the default branch is created automatically.
 - Notifies the creator with a @mention in an issue within the repository that outlines the protections that were added.
 
@@ -17,6 +17,7 @@
 - Install node
 - Install yarn
 - Run 'npm install' from the root of the module to install all the dependent packages
+- Refer 'versions.txt' for versions used during this project development
 
 ## Before Running the Project
 
@@ -27,7 +28,6 @@
 
 - Run 'npm run verify:prettier' to verify prettify on the project
 - Run 'npm run fix:prettier' to fix prettify on the project
-- To set your local npm to point to public npm registry
 
 ## Steps to get the Webhook project Setup
 
@@ -37,12 +37,12 @@
 
 ### Assign a Public IP for the application
 
-- To integrate this project to GitHub webhook, assign a public IP and open port 3030 on the server this project is running
+- To integrate this project to GitHub webhook, assign a public IP and open incoming port 3030 on the server this project is running
 
 ### Setup Webhook integration on Organization level in Github for any actions taken on repository level
 
 - [Documentation by GITHUB](https://docs.github.com/en/developers/webhooks-and-events/webhooks/creating-webhooks)
-- The payload url should be the Public IP on which the app is hosted
+- The payload url should be the Public IP on which the app is hosted (ex- http://<ip_address>:3030/)
 - Select Content type as application/json
 - For event types select repositories and save the webhook
 

@@ -9,7 +9,7 @@ const octokit = new Octokit({
 });
 
 export async function branchProtectionRule(
-  reqJson,
+  reqJson: any,
   branch_protection: {
     required_pull_request_reviews: {
       required_approving_review_count: number;
@@ -28,7 +28,7 @@ export async function branchProtectionRule(
 }
 
 export async function issueCreation(
-  reqJson,
+  reqJson: any,
   issue: { title: string; body: string }
 ) {
   return await octokit.request(`POST ${reqJson.repository.url}/issues`, issue);
