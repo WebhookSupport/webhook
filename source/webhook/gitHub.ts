@@ -15,33 +15,33 @@ async function createBranchProtectionRule(req: any) {
   try {
     if (reqJson.action === "created") {
       console.log("A new repository created event is triggered");
-      // const branch_protection = {
-      //   required_status_checks: null,
-      //   enforce_admins: true,
-      //   required_pull_request_reviews: {
-      //     dismiss_stale_reviews: true,
-      //     require_code_owner_reviews: true,
-      //     required_approving_review_count: 1,
-      //   },
-      //   restrictions: "None",
-      // };
-      // const responseBranchProtectionRule = await branchProtectionRule(
-      //   reqJson,
-      //   branch_protection
-      // );
-      // if (
-      //   responseBranchProtectionRule.status >= 200 &&
-      //   responseBranchProtectionRule.status < 300
-      // ) {
-      //   console.log(
-      //     "Branch Protection rule is created for " + reqJson.repository.url
-      //   );
-      // } else {
-      //   console.log(
-      //     "Branch Protection rule is not created for " + reqJson.repository.url
-      //   );
-      //   return "OK";
-      // }
+      const branch_protection = {
+        required_status_checks: null,
+        enforce_admins: true,
+        required_pull_request_reviews: {
+          dismiss_stale_reviews: true,
+          require_code_owner_reviews: true,
+          required_approving_review_count: 1,
+        },
+        restrictions: "None",
+      };
+      const responseBranchProtectionRule = await branchProtectionRule(
+        reqJson,
+        branch_protection
+      );
+      if (
+        responseBranchProtectionRule.status >= 200 &&
+        responseBranchProtectionRule.status < 300
+      ) {
+        console.log(
+          "Branch Protection rule is created for " + reqJson.repository.url
+        );
+      } else {
+        console.log(
+          "Branch Protection rule is not created for " + reqJson.repository.url
+        );
+        return "OK";
+      }
       if (reqJson.repository.has_issues === true) {
         const issue = {
           title: "Protection Rule Added",
