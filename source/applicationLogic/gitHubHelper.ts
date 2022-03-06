@@ -4,14 +4,18 @@ const octokit = new Octokit({
   auth: process.env.githubToken,
 });
 
-async function createBranchProtectionRule() {
-  return "OK";
+async function createBranchProtectionRule(req) {
+  if (JSON.stringify(req) === '{}' ) {
+    console.log("Payload is empty");
+    return "FAILED";
+  }
+  return "FAILED";
 }
 
 export async function webhook(req: any, res: any) {
   try {
     console.log(req);
-    return await createBranchProtectionRule();
+    return await createBranchProtectionRule(req);
   } catch (e: any) {
     console.log("Failed", e);
   }
