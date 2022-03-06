@@ -2,7 +2,7 @@ import { Octokit } from "@octokit/rest";
 
 const options = {
   githubAccessToken: process.env.githubToken!,
-  githubOrganisation: process.env.githubOrg!,
+  user: "Ritesh007",
 };
 
 const octokit = new Octokit({
@@ -14,25 +14,48 @@ async function createBranchProtectionRule(req: any) {
     console.log("Payload is empty");
     return "OK";
   }
-  console.log(req);
   const reqJson = JSON.parse(req);
   try {
     if (reqJson.action === "created") {
       console.log("A new repository created event is triggered");
       const branch_protection = {
-        required_status_checks: { strict: "True", contexts: ["default"] },
-        enforce_admins: "False",
-        required_pull_request_reviews: "None",
+        required_status_checks: null,
+        enforce_admins: true,
+        required_pull_request_reviews: {
+          dismiss_stale_reviews: true,
+          require_code_owner_reviews: true,
+          required_approving_review_count: 1,
+        },
         restrictions: "None",
       };
-      const response = await octokit.request(
-        `PUT ${reqJson.repository.url}/branches/master/protection`,
+      const responseBranchProtectionRule = await octokit.request(
+        `PUT ${reqJson.repository.url}/branches/${reqJson.repository.default_branch}/protection`,
         branch_protection
       );
-      if (response.status === 200) {
+      if (
+        responseBranchProtectionRule.status >= 200 &&
+        responseBranchProtectionRule.status < 300
+      ) {
         console.log(
           "Branch Protection rule is created for -" + reqJson.repository.url
         );
+      }
+      if (reqJson.repository.has_issues === true) {
+        const issue = {
+          title: "Protection Rule Added",
+          body:
+            "@" +
+            options.user +
+            ` Branch protection was added to the ${reqJson.repository.default_branch} branch`,
+        };
+        const responseIssue = await octokit.request(
+          `POST ${reqJson.repository.url}/issues`,
+          issue
+        );
+        console.log(responseIssue.status);
+        if (responseIssue.status >= 200 && responseIssue.status < 300) {
+          console.log("Issue created for " + reqJson.repository.url);
+        }
       }
     }
   } catch (e: any) {
@@ -43,7 +66,6 @@ async function createBranchProtectionRule(req: any) {
 
 export async function webhook(req: any, res: any) {
   try {
-    console.log(req);
     return await createBranchProtectionRule(req);
   } catch (e: any) {
     console.log("Failed", e);
