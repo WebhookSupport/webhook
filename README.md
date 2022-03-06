@@ -10,7 +10,7 @@
 
 ## Flow Diagram
 
-![](../Desktop/Screen Shot 2022-03-06 at 1.38.41 PM.png)
+![Flow Diagram](assets/flowDiagram.png)
 
 ## Installations needed
 
