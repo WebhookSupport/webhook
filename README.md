@@ -65,7 +65,7 @@
 - [yarn](https://yarnpkg.com/)
 - [TypeScript](https://www.typescriptlang.org/)
 
-## Improvements
+## Improvements 
 
 - Adding test cases to this project
 - Build a complete GitHub CI pipeline, so it's deployed when any code changes happen
